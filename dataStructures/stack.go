@@ -15,6 +15,7 @@ func main() {
   stack.Push(7)
 
   fmt.Println("size: ", stack.Size())
+  fmt.Println("peek: ", stack.Peek())
 
   element := stack.Pop()
   fmt.Println("popped element: ", element)
@@ -39,10 +40,17 @@ func (s *Stack) Pop() interface{} {
   if len == 0 {
     return nil
   }
-
   item := s.elements[len-1]
   s.elements = s.elements[0:len-1]
   return item 
+}
+
+func (s *Stack) Peek() interface{} {
+  len := len(s.elements)
+  if len == 0 {
+    return nil
+  }
+  return s.elements[len-1] 
 }
 
 func (s *Stack) Size() int {
