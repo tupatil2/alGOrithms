@@ -15,7 +15,8 @@ func main() {
   queue.Enqueue(7)
 
   fmt.Println("size: ", queue.Size())
-
+  fmt.Println("peek: ", queue.Peek())
+  
   firstElement := queue.Dequeue()
   fmt.Println("firstElement is ", firstElement)
 
@@ -43,6 +44,15 @@ func (q * Queue) Dequeue() interface{} {
   q.elements = q.elements[1:]
   return item
 }
+
+func (q * Queue) Peek() interface{} {
+  if len(q.elements) == 0 {
+    return nil
+  }
+  return q.elements[0]
+}
+
+
 
 func (q *Queue) Size() int {
   return len(q.elements)
