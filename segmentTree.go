@@ -4,12 +4,6 @@ import (
 	"fmt"
 )
 
-type SegmentTreeInterface interface {
-	Build(index int, low int, high int, arr []int)
-	Update(index int, low int, high int, i int, val int)
-	FindSum(index int, low int, high int, l int, r int) int
-}
-
 type SegmentTree struct{}
 
 var seg []int
@@ -54,8 +48,7 @@ func (s *SegmentTree) FindSum(index int, low int, high int, l int, r int) int {
 }
 
 func main() {
-	var segmentTree SegmentTreeInterface
-	segmentTree = &SegmentTree{}
+  segmentTree := SegmentTree{}
 
 	n := 5
 	arr := []int{1, 2, 3, 4, 5}
